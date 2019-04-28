@@ -10,10 +10,10 @@ The goal of this exercise was to design an API for a dating service like Dil Mil
 ## `/login`
 This endpoint can be used to login a user with their email and password.
 
-Request Type: `POST`
-Request Body: `form`
-Parameters:
-`email`: email address of the user
+Request Type: `POST` <br> 
+Request Body: `form` <br>
+Parameters:<br>
+`email`: email address of the user <br>
 `password`: password of the account
 
 Sample request:
@@ -43,7 +43,7 @@ Sample response:
 ## `/users`
 This endpoint can be used to get a list of all the users in the database.
 
-Request Type: `GET`
+Request Type: `GET` <br>
 Request Body: `-none-`
 
 Sample request:
@@ -138,11 +138,11 @@ Sample response:
 ## `/user`
 This endpoint can be used to get a specific user's profile.
 
-Request Type: `GET`
-Request Body: `-none-`
-URL Parameters:
-`email`: email address of the user
-`user_id`: user id of the user
+Request Type: `GET` <br>
+Request Body: `-none-` <br>
+URL Parameters: <br>
+`email`: email address of the user <br>
+`user_id`: user id of the user <br>
 
 Sample request (by email):
 ```
@@ -178,12 +178,12 @@ Sample response
 ## `/users/filter`
 This endpoint can be used to get a list of users filtered by age and sex.
 
-Request Type: `GET`
-Request Body: `-none-`
-URL Parameters:
-`min_age`: minimum age to filter the users by
-`max_age`: maximum age to filter the users by
-`sex`: filter users by 'M' or 'F' for Male or Female, respectively
+Request Type: `GET` <br>
+Request Body: `-none-` <br>
+URL Parameters: <br>
+`min_age`: minimum age to filter the users by <br>
+`max_age`: maximum age to filter the users by <br>
+`sex`: filter users by 'M' or 'F' for Male or Female, respectively <br>
 
 Sample request:
 ```
@@ -217,11 +217,11 @@ Sample response:
 ## `/like`
 This endpoint can be used to make a user1 like user2.
 
-Request Type: `POST`
-Request Body: `form`
-Parameters:
-`current_user_id`: user id of the user who performed the like
-`liked_user_id`: user id of the user who got liked
+Request Type: `POST` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`current_user_id`: user id of the user who performed the like <br>
+`liked_user_id`: user id of the user who got liked <br>
 
 Sample request:
 ```
@@ -243,10 +243,11 @@ Sample Response:
 
 ## `/likes`
 This endpoint can be used to get a list of users that a given user has liked.
-Request Type: `GET`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose likes to fetch
+
+Request Type: `GET` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose likes to fetch <br>
 
 Sample request:
 ```
@@ -281,10 +282,11 @@ Sample Response:
 
 ## `/likedby`
 This endpoint can be used to get a list of users who have liked a given user.
-Request Type: `GET`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose likers to fetch
+
+Request Type: `GET` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose likers to fetch <br>
 
 Sample request:
 ```
@@ -323,11 +325,11 @@ Sample Response:
 ## `/dislike`
 This endpoint can be used to make a user1 dislike user2.
 
-Request Type: `POST`
-Request Body: `form`
-Parameters:
-`current_user_id`: user id of the user who performed the dislike
-`disliked_user_id`: user id of the user who got disliked
+Request Type: `POST` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`current_user_id`: user id of the user who performed the dislike <br>
+`disliked_user_id`: user id of the user who got disliked <br>
 
 Sample request:
 ```
@@ -349,10 +351,11 @@ Sample Response:
 
 ## `/dislikes`
 This endpoint can be used to get a list of users that a given user has disliked.
-Request Type: `GET`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose dislikes to fetch
+
+Request Type: `GET` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose dislikes to fetch <br>
 
 Sample request:
 ```
@@ -378,10 +381,11 @@ Sample Response:
 ```
 ## `/dislikedby`
 This endpoint can be used to get a list of users who have disliked a given user.
-Request Type: `GET`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose dislikers to fetch
+
+Request Type: `GET` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose dislikers to fetch <br>
 
 Sample request:
 ```
@@ -410,10 +414,11 @@ Sample Response:
 
 ## `/matches`
 This endpoint can be used to get a list of users who have been matched with the given user.
-Request Type: `GET`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose matches to fetch
+
+Request Type: `GET` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose matches to fetch <br>
 
 Sample request:
 ```
@@ -440,10 +445,11 @@ Sample Response:
 
 ## `/potential_matches`
 This endpoint can be used to get a list of users who could be potential matches for the given user.
-Request Type: `GET`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose potential matches to fetch
+
+Request Type: `GET` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose potential matches to fetch <br>
 
 Sample request:
 ```
@@ -489,11 +495,11 @@ Sample Response:
 ## `/user/update/name`
 This endpoint can be used to update a user's name.
 
-Request Type: `POST`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose name needs to be updated
-`new_name`: new name of the user
+Request Type: `POST` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose name needs to be updated <br>
+`new_name`: new name of the user <br>
 
 Sample request:
 ```
@@ -509,11 +515,11 @@ form: {
 ## `/user/update/bio`
 This endpoint can be used to update a user's bio.
 
-Request Type: `POST`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose bio needs to be updated
-`new_bio`: new bio of the user
+Request Type: `POST` <br>
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose bio needs to be updated <br>
+`new_bio`: new bio of the user <br>
 
 Sample request:
 ```
@@ -530,10 +536,10 @@ form: {
 This endpoint can be used to update a user's age.
 
 Request Type: `POST`
-Request Body: `form`
-Parameters:
-`user_id`: user id of the user whose age needs to be updated
-`new_age`: new age of the user
+Request Body: `form` <br>
+Parameters: <br>
+`user_id`: user id of the user whose age needs to be updated <br>
+`new_age`: new age of the user <br>
 
 Sample request:
 ```
