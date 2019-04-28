@@ -1,6 +1,6 @@
 # Gravity Group API Documentation
 
-The goal of this exercise was to design an API for a dating service like Dil Mil. There are several endpoints that client app can use. Below is the breaddown and description on how to use them.
+The goal of this exercise was to design an API for a dating service like Dil Mil. There are several endpoints that client app can use. Below is the breakdown and description on how to use them.
 
 
 # Authentication
