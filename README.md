@@ -552,10 +552,12 @@ form: {
     "message": "Update request successfully processed"
 }
 ```
-# Errors
-Below are the error code and their corrosponding messages that will be returned in case of invalid API request.
+# Errors and Exceptions
+Below are the error code and their corresponding messages that will be returned in case of invalid API request.
+
+
 | Name | Code | Message  |
-|--|--|--|
+| ---- | ---- | ---- |
 | MISSING_ATTR_USER_ID | 1| Missing attribute in request form. `user_id` must be passed in using form in the request|
 | MISSING_ATTR_USER_ID_LIKE | 2| Missing attributes in request form. `current_user_id` and `liked_user_id` must be passed in using form in the request|
 | MISSING_ATTR_USER_ID_DISLIKE | 3| Missing attributes in request form. `current_user_id` and `disliked_user_id` must be passed in using form in the request|
@@ -570,3 +572,5 @@ Below are the error code and their corrosponding messages that will be returned 
 | MISSING_ATTR_NEW_NAME | 12| Missing attributes in request form. `new_name` must be passed in using form in the request|
 | MISSING_ATTR_NEW_AGE | 13| Missing attributes in request form. `new_age` must be passed in using form in the request|
 | MISSING_ATTR_NEW_BIO | 14| Missing attributes in request form. `new_bio` must be passed in using form in the request|
+
+
