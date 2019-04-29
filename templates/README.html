@@ -1,0 +1,405 @@
+<h1 id="gravity-group-api-documentation">Gravity Group API Documentation</h1>
+<p>The goal of this exercise was to design an API for a dating service like Dil Mil. There are several endpoints that client app can use. Below is the breakdown and description on how to use them.</p>
+<h1 id="authentication">Authentication</h1>
+<h2 id="login"><code>/login</code></h2>
+<p>This endpoint can be used to login a user with their email and password.</p>
+<p>Request Type: <code>POST</code> <br> Request Body: <code>form</code> <br> Parameters:<br> <code>email</code>: email address of the user <br> <code>password</code>: password of the account</p>
+<p>Sample request:</p>
+<pre><code>POST: http://127.0.0.1:5000/login
+form: {
+    email: &#39;parth.v.bhoiwala@gmail.com&#39;,
+    password: &#39;bhoiwala&#39;
+}</code></pre>
+<p>Sample response:</p>
+<pre><code>{
+    &quot;displayName&quot;: &quot;&quot;,
+    &quot;email&quot;: &quot;parth.v.bhoiwala@gmail.com&quot;,
+    &quot;expiresIn&quot;: &quot;3600&quot;,
+    &quot;idToken&quot;: &quot;eyJhbGciOiJSUzI1NiIsImtpZCI6IjY1NmMzZGQyMWQwZmVmODgyZTA5ZTBkODY5MWNhNWM3ZjJiMGQ2MjEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZGlsbWlsIiwiYXVkIjoiZGlsbWlsIiwiYXV0aF90aW1lIjoxNTU2NDc1MDI0LCJ1c2VyX2lkIjoicllOSHA4MXpPd09JekZ3UG5pWEJaNlJSMXF5MSIsInN1YiI6InJZTkhwODF6T3dPSXpGd1BuaVhCWjZSUjFxeTEiLCJpYXQiOjE1NTY0NzUwMjQsImV4cCI6MTU1NjQ3ODYyNCwiZW1haWwiOiJwYXJ0aC52LmJob2l3YWxhQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJwYXJ0aC52LmJob2l3YWxhQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.f_yGB-L6J2c0nKdcZIJUc0Js4Fqe-C897rVGQJawQggPepL0O1NHd9bageH9_78GbNR-C6ppJ-5cX2kcoOtPNcxlLfc3khlmiAwjDS3J94AMpDoTDqsYs6WqfSAeaBJsbqP5zqo1aMR3U9Nkio1a9UnONGqfglrFDLGjoqom0dOJWukHXSQi1-2nR5Qxrxd1qQEixiiIIfIvnaDFx_JZ08L0PFo45y3uEnGw3lLTW-0i06OHXuPZ_gSRyqvsUcU1dczyzn_XBnDe8zzRzmlJ0KVUKPsRj9XzMVcy0LMOSrXwyocevHTynqcfTfL_wPK980IDE2WZh4J5N4k-ISCiww&quot;,
+    &quot;kind&quot;: &quot;identitytoolkit#VerifyPasswordResponse&quot;,
+    &quot;localId&quot;: &quot;rYNHp81zOwOIzFwPniXBZ6RR1qy1&quot;,
+    &quot;refreshToken&quot;: &quot;AEu4IL051M7t7IFbrpav6Ql03JiD1FY8D7GVNico-SCP0d7Hr0DfQWRmvgReaIJloR9Tu1o92YzQgEvZZUmfwbuF3lhjp1wTlVAcUe3D0pJ5CHmsndzdlYmDoj6Fd2hcYR_4ddvYEZAMVT_vR_nH0LGU8b1SlPtdDZOg_tsTLqfA72cOr4PQmNDyY1DpkEbxrzK3dT11-0zs&quot;,
+    &quot;registered&quot;: true
+}</code></pre>
+<h1 id="get-user-profiles">Get User Profiles</h1>
+<h2 id="users"><code>/users</code></h2>
+<p>This endpoint can be used to get a list of all the users in the database.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>-none-</code></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/users</code></pre>
+<p>Sample response: <code>[     {         &quot;age&quot;: 19,         &quot;bio&quot;: &quot;Junior at Harvard, favorite activity is scuba diving&quot;,         &quot;email&quot;: &quot;jake@gmail.com&quot;,         &quot;name&quot;: &quot;Jake Ballmer&quot;,         &quot;sex&quot;: &quot;M&quot;,         &quot;user_id&quot;: &quot;4bEurIdXSBVng0zpWB9GcDzgKks1&quot;     },     {         &quot;age&quot;: 29,         &quot;bio&quot;: &quot;Physician at UPenn, watching Netflix is my hobby&quot;,         &quot;email&quot;: &quot;emily@gmail.com&quot;,         &quot;name&quot;: &quot;Emily Davidson&quot;,         &quot;sex&quot;: &quot;F&quot;,         &quot;user_id&quot;: &quot;6fiAmbryEaRRFdjfeK8h1tnFj9m1&quot;     },     {         &quot;age&quot;: 31,         &quot;bio&quot;: &quot;Architect engineer, loves cooking food&quot;,         &quot;email&quot;: &quot;amanda@gmail.com&quot;,         &quot;name&quot;: &quot;Amanda Johnson&quot;,         &quot;sex&quot;: &quot;F&quot;,         &quot;user_id&quot;: &quot;9fmBjsJWuOWA2eS242hEOnXwkEt1&quot;     },     {         &quot;age&quot;: 28,         &quot;bio&quot;: &quot;DiCaprio 2, all day, J.I.D&quot;,         &quot;email&quot;: &quot;nancy@gmail.com&quot;,         &quot;name&quot;: &quot;Nancy DiCaprio&quot;,         &quot;sex&quot;: &quot;F&quot;,         &quot;user_id&quot;: &quot;Bp75dPhTmWWs88MxHQS2rNlqg9p2&quot;     },     {         &quot;age&quot;: 21,         &quot;bio&quot;: &quot;I love art&quot;,         &quot;email&quot;: &quot;mary.jane@gmail.com&quot;,         &quot;name&quot;: &quot;Mary Jane&quot;,         &quot;sex&quot;: &quot;F&quot;,         &quot;user_id&quot;: &quot;DxJEk5NAFufZYpH7jXjPTtpzV3r1&quot;     },     {         &quot;age&quot;: 26,         &quot;bio&quot;: &quot;Senior @ Dxrexel, Philly, Android, UI, Graphics&quot;,         &quot;email&quot;: &quot;michael@gmail.com&quot;,         &quot;name&quot;: &quot;Michael DiCioccio&quot;,         &quot;sex&quot;: &quot;M&quot;,         &quot;user_id&quot;: &quot;HuHRWFGH8yaHm8pOVqjspPtKD4g1&quot;     },     {         &quot;age&quot;: 21,         &quot;bio&quot;: &quot;Pursuing business at Yale, SRK fan&quot;,         &quot;email&quot;: &quot;priyanka@gmail.com&quot;,         &quot;name&quot;: &quot;Priyanka Shah&quot;,         &quot;sex&quot;: &quot;F&quot;,         &quot;user_id&quot;: &quot;amxiXfkMy7cExPDh8ju1JfQ76MJ3&quot;     },     {         &quot;age&quot;: 24,         &quot;bio&quot;: &quot;I love sports, and iOS dev, Ex Intern @Box&quot;,         &quot;email&quot;: &quot;satish@gmail.com&quot;,         &quot;name&quot;: &quot;Satish Boggarapu&quot;,         &quot;sex&quot;: &quot;M&quot;,         &quot;user_id&quot;: &quot;otnRgXkDbhQ7SmWesMIBpajfD7d2&quot;     },     {         &quot;age&quot;: 23,         &quot;bio&quot;: &quot;Android dev, love coffee and biking, #cricket fan&quot;,         &quot;email&quot;: &quot;parth.v.bhoiwala@gmail.com&quot;,         &quot;name&quot;: &quot;Parth Shah&quot;,         &quot;sex&quot;: &quot;M&quot;,         &quot;user_id&quot;: &quot;rYNHp81zOwOIzFwPniXBZ6RR1qy1&quot;     },     {         &quot;age&quot;: 30,         &quot;bio&quot;: &quot;Actor, Chef, Runner #marvel fan&quot;,         &quot;email&quot;: &quot;rohit@gmail.com&quot;,         &quot;name&quot;: &quot;Rohit Sharma&quot;,         &quot;sex&quot;: &quot;M&quot;,         &quot;user_id&quot;: &quot;x7jnlNxtVff4ZVKv4gGcy4Ffqzz1&quot;     } ]</code></p>
+<h2 id="user"><code>/user</code></h2>
+<p>This endpoint can be used to get a specific user's profile.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>-none-</code> <br> URL Parameters: <br> <code>email</code>: email address of the user <br> <code>user_id</code>: user id of the user <br></p>
+<p>Sample request (by email):</p>
+<pre><code>GET: http://127.0.0.1:5000/user?email=parth.v.bhoiwala@gmail.com</code></pre>
+<p>Sample response:</p>
+<pre><code>{
+    &quot;age&quot;: 23,
+    &quot;bio&quot;: &quot;Android dev, love coffee and biking, #cricket fan&quot;,
+    &quot;email&quot;: &quot;parth.v.bhoiwala@gmail.com&quot;,
+    &quot;name&quot;: &quot;Parth Shah&quot;,
+    &quot;sex&quot;: &quot;M&quot;,
+    &quot;user_id&quot;: &quot;rYNHp81zOwOIzFwPniXBZ6RR1qy1&quot;
+}</code></pre>
+<p>Sample request (by user id):</p>
+<pre><code>GET: http://127.0.0.1:5000/user?user_id=6fiAmbryEaRRFdjfeK8h1tnFj9m1</code></pre>
+<p>Sample response :</p>
+<pre><code>{
+    &quot;age&quot;: 29,
+    &quot;bio&quot;: &quot;Physician at UPenn, watching Netflix is my hobby&quot;,
+    &quot;email&quot;: &quot;emily@gmail.com&quot;,
+    &quot;name&quot;: &quot;Emily Davidson&quot;,
+    &quot;sex&quot;: &quot;F&quot;,
+    &quot;user_id&quot;: &quot;6fiAmbryEaRRFdjfeK8h1tnFj9m1&quot;
+}</code></pre>
+<h2 id="usersfilter"><code>/users/filter</code></h2>
+<p>This endpoint can be used to get a list of users filtered by age and sex.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>-none-</code> <br> URL Parameters: <br> <code>min_age</code>: minimum age to filter the users by <br> <code>max_age</code>: maximum age to filter the users by <br> <code>sex</code>: filter users by 'M' or 'F' for Male or Female, respectively <br></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/users/filter?min_age=25&amp;max_age=30&amp;sex=F</code></pre>
+<p>Sample response:</p>
+<pre><code>[
+    {
+        &quot;age&quot;: 28,
+        &quot;bio&quot;: &quot;DiCaprio 2, all day, J.I.D&quot;,
+        &quot;email&quot;: &quot;nancy@gmail.com&quot;,
+        &quot;name&quot;: &quot;Nancy DiCaprio&quot;,
+        &quot;sex&quot;: &quot;F&quot;,
+        &quot;user_id&quot;: &quot;Bp75dPhTmWWs88MxHQS2rNlqg9p2&quot;
+    },
+    {
+        &quot;age&quot;: 29,
+        &quot;bio&quot;: &quot;Physician at UPenn, watching Netflix is my hobby&quot;,
+        &quot;email&quot;: &quot;emily@gmail.com&quot;,
+        &quot;name&quot;: &quot;Emily Davidson&quot;,
+        &quot;sex&quot;: &quot;F&quot;,
+        &quot;user_id&quot;: &quot;6fiAmbryEaRRFdjfeK8h1tnFj9m1&quot;
+    }
+]</code></pre>
+<h1 id="liking">Liking</h1>
+<h2 id="like"><code>/like</code></h2>
+<p>This endpoint can be used to make a user1 like user2.</p>
+<p>Request Type: <code>POST</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>current_user_id</code>: user id of the user who performed the like <br> <code>liked_user_id</code>: user id of the user who got liked <br></p>
+<p>Sample request:</p>
+<pre><code>POST: http://127.0.0.1:5000/like
+form: {
+    current_user_id: &#39;x7jnlNxtVff4ZVKv4gGcy4Ffqzz1&#39;,
+    liked_user_id: &#39;Bp75dPhTmWWs88MxHQS2rNlqg9p2&#39;
+}</code></pre>
+<blockquote>
+<p>In this case, <code>current_user_id</code> is &quot;Rohit Sharma&quot; and <code>liked_user_id</code> is &quot;Nancy DiCaprio&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>{
+    &quot;code&quot;: 15,
+    &quot;message&quot;: &quot;Action successfully processed&quot;
+}</code></pre>
+<h2 id="likes"><code>/likes</code></h2>
+<p>This endpoint can be used to get a list of users that a given user has liked.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose likes to fetch <br></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/likes
+form: {
+    user_id: &#39;rYNHp81zOwOIzFwPniXBZ6RR1qy1&#39;,
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Parth Shah&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>[
+    {
+        &quot;age&quot;: 28,
+        &quot;bio&quot;: &quot;DiCaprio 2, all day, J.I.D&quot;,
+        &quot;email&quot;: &quot;nancy@gmail.com&quot;,
+        &quot;name&quot;: &quot;Nancy DiCaprio&quot;,
+        &quot;sex&quot;: &quot;F&quot;,
+        &quot;user_id&quot;: &quot;Bp75dPhTmWWs88MxHQS2rNlqg9p2&quot;
+    },
+    {
+        &quot;age&quot;: 21,
+        &quot;bio&quot;: &quot;I love art&quot;,
+        &quot;email&quot;: &quot;mary.jane@gmail.com&quot;,
+        &quot;name&quot;: &quot;Mary Jane&quot;,
+        &quot;sex&quot;: &quot;F&quot;,
+        &quot;user_id&quot;: &quot;DxJEk5NAFufZYpH7jXjPTtpzV3r1&quot;
+    }
+]</code></pre>
+<h2 id="likedby"><code>/likedby</code></h2>
+<p>This endpoint can be used to get a list of users who have liked a given user.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose likers to fetch <br></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/likedby
+form: {
+    user_id: &#39;Bp75dPhTmWWs88MxHQS2rNlqg9p2&#39;,
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Nancy DiCaprio&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>[
+    {
+        &quot;age&quot;: 23,
+        &quot;bio&quot;: &quot;Android dev, love coffee and biking, #cricket fan&quot;,
+        &quot;email&quot;: &quot;parth.v.bhoiwala@gmail.com&quot;,
+        &quot;name&quot;: &quot;Parth Shah&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;user_id&quot;: &quot;rYNHp81zOwOIzFwPniXBZ6RR1qy1&quot;
+    },
+    {
+        &quot;age&quot;: 30,
+        &quot;bio&quot;: &quot;Actor, Chef, Runner #marvel fan&quot;,
+        &quot;email&quot;: &quot;rohit@gmail.com&quot;,
+        &quot;name&quot;: &quot;Rohit Sharma&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;user_id&quot;: &quot;x7jnlNxtVff4ZVKv4gGcy4Ffqzz1&quot;
+    }
+]</code></pre>
+<h1 id="disliking">Disliking</h1>
+<h2 id="dislike"><code>/dislike</code></h2>
+<p>This endpoint can be used to make a user1 dislike user2.</p>
+<p>Request Type: <code>POST</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>current_user_id</code>: user id of the user who performed the dislike <br> <code>disliked_user_id</code>: user id of the user who got disliked <br></p>
+<p>Sample request:</p>
+<pre><code>POST: http://127.0.0.1:5000/dislike
+form: {
+    current_user_id: &#39;amxiXfkMy7cExPDh8ju1JfQ76MJ3&#39;,
+    disliked_user_id: &#39;4bEurIdXSBVng0zpWB9GcDzgKks1&#39;
+}</code></pre>
+<blockquote>
+<p>In this case, <code>current_user_id</code> is &quot;Priyanka Shah&quot; and <code>disliked_user_id</code> is &quot;Jake Ballmer&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>{
+    &quot;code&quot;: 15,
+    &quot;message&quot;: &quot;Action successfully processed&quot;
+}</code></pre>
+<h2 id="dislikes"><code>/dislikes</code></h2>
+<p>This endpoint can be used to get a list of users that a given user has disliked.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose dislikes to fetch <br></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/dislikes
+form: {
+    user_id: &#39;amxiXfkMy7cExPDh8ju1JfQ76MJ3&#39;,
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Priyanka Shah&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>[
+    {
+        &quot;age&quot;: 19,
+        &quot;bio&quot;: &quot;Junior at Harvard, favorite activity is scuba diving&quot;,
+        &quot;email&quot;: &quot;jake@gmail.com&quot;,
+        &quot;name&quot;: &quot;Jake Ballmer&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;user_id&quot;: &quot;4bEurIdXSBVng0zpWB9GcDzgKks1&quot;
+    }
+]</code></pre>
+<h2 id="dislikedby"><code>/dislikedby</code></h2>
+<p>This endpoint can be used to get a list of users who have disliked a given user.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose dislikers to fetch <br></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/dislikedby
+form: {
+    user_id: &#39;Bp75dPhTmWWs88MxHQS2rNlqg9p2&#39;,
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Jake Ballmer&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>[
+    {
+        &quot;age&quot;: 21,
+        &quot;bio&quot;: &quot;Pursuing business at Yale, SRK fan&quot;,
+        &quot;email&quot;: &quot;priyanka@gmail.com&quot;,
+        &quot;name&quot;: &quot;Priyanka Shah&quot;,
+        &quot;sex&quot;: &quot;F&quot;,
+        &quot;user_id&quot;: &quot;amxiXfkMy7cExPDh8ju1JfQ76MJ3&quot;
+    }
+]</code></pre>
+<h2 id="matches">Matches</h2>
+<h2 id="matches-1"><code>/matches</code></h2>
+<p>This endpoint can be used to get a list of users who have been matched with the given user.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose matches to fetch <br></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/matches
+form: {
+    user_id: &#39;rYNHp81zOwOIzFwPniXBZ6RR1qy13&#39;,
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Parth Shah&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>[
+    {
+        &quot;age&quot;: 21,
+        &quot;bio&quot;: &quot;I love art&quot;,
+        &quot;email&quot;: &quot;mary.jane@gmail.com&quot;,
+        &quot;name&quot;: &quot;Mary Jane&quot;,
+        &quot;sex&quot;: &quot;F&quot;,
+        &quot;user_id&quot;: &quot;DxJEk5NAFufZYpH7jXjPTtpzV3r1&quot;
+    }
+]</code></pre>
+<h2 id="potential_matches"><code>/potential_matches</code></h2>
+<p>This endpoint can be used to get a list of users who could be potential matches for the given user.</p>
+<p>Request Type: <code>GET</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose potential matches to fetch <br></p>
+<p>Sample request:</p>
+<pre><code>GET: http://127.0.0.1:5000/potential_matches
+form: {
+    user_id: &#39;6fiAmbryEaRRFdjfeK8h1tnFj9m1&#39;,
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Emily Davidson&quot;</p>
+</blockquote>
+<p>Sample Response:</p>
+<pre><code>[
+    {
+        &quot;age&quot;: 24,
+        &quot;bio&quot;: &quot;I love sports, and iOS dev, Ex Intern @Box&quot;,
+        &quot;email&quot;: &quot;satish@gmail.com&quot;,
+        &quot;name&quot;: &quot;Satish Boggarapu&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;user_id&quot;: &quot;otnRgXkDbhQ7SmWesMIBpajfD7d2&quot;
+    },
+    {
+        &quot;age&quot;: 26,
+        &quot;bio&quot;: &quot;Senior @ Dxrexel, Philly, Android, UI, Graphics&quot;,
+        &quot;email&quot;: &quot;michael@gmail.com&quot;,
+        &quot;name&quot;: &quot;Michael DiCioccio&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;user_id&quot;: &quot;HuHRWFGH8yaHm8pOVqjspPtKD4g1&quot;
+    },
+    {
+        &quot;age&quot;: 30,
+        &quot;bio&quot;: &quot;Actor, Chef, Runner #marvel fan&quot;,
+        &quot;email&quot;: &quot;rohit@gmail.com&quot;,
+        &quot;name&quot;: &quot;Rohit Sharma&quot;,
+        &quot;sex&quot;: &quot;M&quot;,
+        &quot;user_id&quot;: &quot;x7jnlNxtVff4ZVKv4gGcy4Ffqzz1&quot;
+    }
+]</code></pre>
+<h1 id="updating-user-profile">Updating User Profile</h1>
+<h2 id="userupdatename"><code>/user/update/name</code></h2>
+<p>This endpoint can be used to update a user's name.</p>
+<p>Request Type: <code>POST</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose name needs to be updated <br> <code>new_name</code>: new name of the user <br></p>
+<p>Sample request:</p>
+<pre><code>POST: http://127.0.0.1:5000/user/update/name
+form: {
+    user_id: &#39;rYNHp81zOwOIzFwPniXBZ6RR1qy1&#39;,
+    new_name: &#39;Parth Bhoiwala&#39;
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Parth Shah&quot;</p>
+</blockquote>
+<h2 id="userupdatebio"><code>/user/update/bio</code></h2>
+<p>This endpoint can be used to update a user's bio.</p>
+<p>Request Type: <code>POST</code> <br> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose bio needs to be updated <br> <code>new_bio</code>: new bio of the user <br></p>
+<p>Sample request:</p>
+<pre><code>POST: http://127.0.0.1:5000/user/update/bio
+form: {
+    user_id: &#39;rYNHp81zOwOIzFwPniXBZ6RR1qy1&#39;,
+    new_bio: &#39;Android dev, I love coffee and biking, #cricket fan&#39;
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Parth Bhoiwala&quot;</p>
+</blockquote>
+<h2 id="userupdateage"><code>/user/update/age</code></h2>
+<p>This endpoint can be used to update a user's age.</p>
+<p>Request Type: <code>POST</code> Request Body: <code>form</code> <br> Parameters: <br> <code>user_id</code>: user id of the user whose age needs to be updated <br> <code>new_age</code>: new age of the user <br></p>
+<p>Sample request:</p>
+<pre><code>POST: http://127.0.0.1:5000/user/update/bio
+form: {
+    user_id: &#39;9fmBjsJWuOWA2eS242hEOnXwkEt1&#39;,
+    new_age: 32
+}</code></pre>
+<blockquote>
+<p>In this case, <code>user_id</code> is &quot;Amanda Johnson&quot;</p>
+</blockquote>
+<h4 id="sample-response-for-the-above-endpoints">Sample Response for the above endpoints:</h4>
+<pre><code>{
+    &quot;code&quot;: 16,
+    &quot;message&quot;: &quot;Update request successfully processed&quot;
+}</code></pre>
+<h1 id="errors-and-exceptions">Errors and Exceptions</h1>
+<p>Below are the error code and their corresponding messages that will be returned in case of invalid API request.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Code</th>
+<th align="left">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">MISSING_ATTR_USER_ID</td>
+<td align="left">1</td>
+<td align="left">Missing attribute in request form. <code>user_id</code> must be passed in using form in the request</td>
+</tr>
+<tr class="even">
+<td align="left">MISSING_ATTR_USER_ID_LIKE</td>
+<td align="left">2</td>
+<td align="left">Missing attributes in request form. <code>current_user_id</code> and <code>liked_user_id</code> must be passed in using form in the request</td>
+</tr>
+<tr class="odd">
+<td align="left">MISSING_ATTR_USER_ID_DISLIKE</td>
+<td align="left">3</td>
+<td align="left">Missing attributes in request form. <code>current_user_id</code> and <code>disliked_user_id</code> must be passed in using form in the request</td>
+</tr>
+<tr class="even">
+<td align="left">MISSING_ATTR_AUTH</td>
+<td align="left">4</td>
+<td align="left">Missing attributes in request form. <code>email</code> and <code>password</code> must be passed in using form in the request</td>
+</tr>
+<tr class="odd">
+<td align="left">MISSING_ATTR_GET_USER</td>
+<td align="left">5</td>
+<td align="left">Missing attributes in request form. <code>email</code> or <code>user_id</code> must be passed in as the request parameters</td>
+</tr>
+<tr class="even">
+<td align="left">EMAIL_NOT_FOUND</td>
+<td align="left">6</td>
+<td align="left">User with the given email does not exist in the database</td>
+</tr>
+<tr class="odd">
+<td align="left">USER_ID_NOT_FOUND</td>
+<td align="left">7</td>
+<td align="left">User with the given id does not exist in the database</td>
+</tr>
+<tr class="even">
+<td align="left">NO_LIKES</td>
+<td align="left">8</td>
+<td align="left">User has no likes</td>
+</tr>
+<tr class="odd">
+<td align="left">NO_DISLIKES</td>
+<td align="left">9</td>
+<td align="left">User has no dislikes</td>
+</tr>
+<tr class="even">
+<td align="left">NO_MATCHES</td>
+<td align="left">10</td>
+<td align="left">User has no matches</td>
+</tr>
+<tr class="odd">
+<td align="left">NO_POTENTIAL_MATCHES</td>
+<td align="left">11</td>
+<td align="left">No potential matches found for user</td>
+</tr>
+<tr class="even">
+<td align="left">MISSING_ATTR_NEW_NAME</td>
+<td align="left">12</td>
+<td align="left">Missing attributes in request form. <code>new_name</code> must be passed in using form in the request</td>
+</tr>
+<tr class="odd">
+<td align="left">MISSING_ATTR_NEW_AGE</td>
+<td align="left">13</td>
+<td align="left">Missing attributes in request form. <code>new_age</code> must be passed in using form in the request</td>
+</tr>
+<tr class="even">
+<td align="left">MISSING_ATTR_NEW_BIO</td>
+<td align="left">14</td>
+<td align="left">Missing attributes in request form. <code>new_bio</code> must be passed in using form in the request</td>
+</tr>
+</tbody>
+</table>

@@ -5,10 +5,9 @@ import requests
 from firebase_admin import credentials, firestore, auth
 
 from model.User import User
-from private import key
-from util import Status
+from util import Status, key
 
-cred = credentials.Certificate('private/dilmil-firebase-adminsdk-e104a-9efd465be8.json')
+cred = credentials.Certificate('util/dilmil-firebase-adminsdk-e104a-9efd465be8.json')
 firebase_admin.initialize_app(credential=cred)
 db = firestore.client()
 

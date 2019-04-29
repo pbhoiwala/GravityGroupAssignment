@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, render_template
 
 from resource.login_resource import login_app
 from resource.user_resource import user_app
@@ -21,10 +21,10 @@ gravity.register_blueprint(update_app)
 
 @gravity.route('/')
 def hello_world():
-    # TODO return docs here
-    return 'Hello World!'
+    return render_template('README.html')
 
 
 if __name__ == '__main__':
     gravity.run()
 
+git
