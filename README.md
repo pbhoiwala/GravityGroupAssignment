@@ -3,6 +3,26 @@
 The goal of this exercise was to design an API for a dating service like Dil Mil. There are several endpoints that client app can use. Below is the breakdown and description on how to use them.
 
 
+# Installation and How to Run
+Tech Stack:
+- Python3 (backend)
+- Flask (web framework)
+- Firebase (cloud database)
+
+Installation:
+- Python3: https://www.python.org/downloads/
+- Flask: `pip3 install flask`
+- Firebase: `pip3 install firebase_admin`
+
+How to run:
+- Drop the following files into `/util` directory 
+    - `dilmil-firebase-adminsdk-e104a-9efd465be8.json`
+    - `key.py`
+- Run the following command through terminal (from Project root): 
+    - `python3 app.py`
+- If everything is setup correctly, the app will run on http://127.0.0.1:5000/
+   
+
 # Authentication
 
 
